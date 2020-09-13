@@ -1,0 +1,98 @@
+--- kube-flannel.yml	2020-09-13 10:45:17.119824271 +0800
++++ ../../kube-flannel.yml	2020-09-13 11:11:59.432480644 +0800
+@@ -170,7 +170,7 @@
+       serviceAccountName: flannel
+       initContainers:
+       - name: install-cni
+-        image: quay.io/coreos/flannel:v0.12.0-amd64
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-amd64
+         command:
+         - cp
+         args:
+@@ -184,12 +184,13 @@
+           mountPath: /etc/kube-flannel/
+       containers:
+       - name: kube-flannel
+-        image: quay.io/coreos/flannel:v0.12.0-amd64
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-amd64
+         command:
+         - /opt/bin/flanneld
+         args:
+         - --ip-masq
+         - --kube-subnet-mgr
++        - --iface=eth0
+         resources:
+           requests:
+             cpu: "100m"
+@@ -265,7 +266,7 @@
+       serviceAccountName: flannel
+       initContainers:
+       - name: install-cni
+-        image: quay.io/coreos/flannel:v0.12.0-arm64
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-arm64
+         command:
+         - cp
+         args:
+@@ -279,7 +280,7 @@
+           mountPath: /etc/kube-flannel/
+       containers:
+       - name: kube-flannel
+-        image: quay.io/coreos/flannel:v0.12.0-arm64
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-arm64
+         command:
+         - /opt/bin/flanneld
+         args:
+@@ -360,7 +361,7 @@
+       serviceAccountName: flannel
+       initContainers:
+       - name: install-cni
+-        image: quay.io/coreos/flannel:v0.12.0-arm
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-arm
+         command:
+         - cp
+         args:
+@@ -374,7 +375,7 @@
+           mountPath: /etc/kube-flannel/
+       containers:
+       - name: kube-flannel
+-        image: quay.io/coreos/flannel:v0.12.0-arm
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-arm
+         command:
+         - /opt/bin/flanneld
+         args:
+@@ -455,7 +456,7 @@
+       serviceAccountName: flannel
+       initContainers:
+       - name: install-cni
+-        image: quay.io/coreos/flannel:v0.12.0-ppc64le
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-ppc64le
+         command:
+         - cp
+         args:
+@@ -469,7 +470,7 @@
+           mountPath: /etc/kube-flannel/
+       containers:
+       - name: kube-flannel
+-        image: quay.io/coreos/flannel:v0.12.0-ppc64le
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-ppc64le
+         command:
+         - /opt/bin/flanneld
+         args:
+@@ -550,7 +551,7 @@
+       serviceAccountName: flannel
+       initContainers:
+       - name: install-cni
+-        image: quay.io/coreos/flannel:v0.12.0-s390x
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-s390x
+         command:
+         - cp
+         args:
+@@ -564,7 +565,7 @@
+           mountPath: /etc/kube-flannel/
+       containers:
+       - name: kube-flannel
+-        image: quay.io/coreos/flannel:v0.12.0-s390x
++        image: registry.cn-shanghai.aliyuncs.com/outsrkem/flannel:v0.12.0-s390x
+         command:
+         - /opt/bin/flanneld
+         args:
